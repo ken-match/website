@@ -13,6 +13,10 @@ import Navbar from "./navbar"
 
 const StyledHeader = motion.custom(styled.header`
   width: 100%;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 100;
   height: ${({ theme }) => theme.headerHeight};
   background: ${({ theme }) => theme.colors.background};
 `)
@@ -77,7 +81,6 @@ const Header = () => {
   const [open, setOpen] = useState(false)
   const [windowWidth, setWindowWidth] = useState(0)
 
-  
   useEffect(() => {
     let handleWindowSizeChange
     // if (isSSR) is necessary to prevent error during the gatsby build
@@ -94,9 +97,9 @@ const Header = () => {
   // Required for animation - start after the splashScreen sequence is done
   const controls = useAnimation()
   useEffect(() => {
-    if (isIntroDone) controls.start({ opacity: 1, y: 0, transition: { delay: 0.2 } })
+    if (isIntroDone)
+      controls.start({ opacity: 1, y: 0, transition: { delay: 0.2 } })
   }, [isIntroDone, controls])
-  
 
   let navigation
   if (detectMobileAndTablet(windowWidth)) {
