@@ -1,5 +1,3 @@
 import useOnScreen from "./useOnScreen"
 
-export {
-    useOnScreen
-}
+export { useOnScreen }

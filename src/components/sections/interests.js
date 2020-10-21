@@ -2,10 +2,10 @@ import React, { useState, useEffect, useRef } from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 import Img from "gatsby-image"
-import { motion, useAnimation } from "framer-motion"
+import { motion, useAnimation } from "framer-motion"
 
 import { detectMobileAndTablet, isSSR } from "../../utils"
-import { useOnScreen }  from "../../hooks/"
+import { useOnScreen } from "../../hooks/"
 import ContentWrapper from "../../styles/ContentWrapper"
 import Button from "../../styles/Button"
 
@@ -135,7 +135,9 @@ const Interests = ({ content }) => {
         // i receives the value of the custom prop - can be used to stagger
         // the animation of each "interest" element
         await iControls.start(i => ({
-          opacity: 1, scaleY: 1, transition: { delay: i * 0.1 }
+          opacity: 1,
+          scaleY: 1,
+          transition: { delay: i * 0.1 },
         }))
         await bControls.start({ opacity: 1, scaleY: 1 })
       }
@@ -151,14 +153,14 @@ const Interests = ({ content }) => {
         <h3 className="section-title">{frontmatter.title}</h3>
         <StyledInterests itemCount={interests.length} ref={ref}>
           {interests.slice(0, shownInterests).map(({ name, icon }, key) => (
-            <motion.div 
-              className="interest" 
-              key={key} 
-              custom={key} 
+            <motion.div
+              className="interest"
+              key={key}
+              custom={key}
               initial={{ opacity: 0, scaleY: 0 }}
               animate={iControls}
             >
-                <Img className="icon" fixed={icon.childImageSharp.fixed} /> {name}
+              <Img className="icon" fixed={icon.childImageSharp.fixed} /> {name}
             </motion.div>
           ))}
           {shownInterests < interests.length && (

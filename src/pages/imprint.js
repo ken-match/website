@@ -16,14 +16,14 @@ const StyledSection = styled.section`
   height: auto;
   background: ${({ theme }) => theme.colors.background};
   h1 {
-      font-size: 1.5rem;
+    font-size: 1.5rem;
   }
   h2 {
-      font-size: 1.25rem;
+    font-size: 1.25rem;
   }
   h3 {
-      font-size: 1rem;
-      margin-bottom: 1rem;
+    font-size: 1rem;
+    margin-bottom: 1rem;
   }
 `
 
@@ -41,7 +41,10 @@ const Imprint = ({ data }) => {
   const { body, frontmatter } = data.imprint.edges[0].node
   return (
     <Layout splashScreen={false}>
-      <SEO title="Imprint - Portfolio Minimal" meta={[{ name: 'robots', content: 'noindex'}]} />
+      <SEO
+        title="Imprint - Portfolio Minimal"
+        meta={[{ name: "robots", content: "noindex" }]}
+      />
       <StyledSection id={frontmatter.title}>
         <StyledContentWrapper>
           <h1>{frontmatter.title}</h1>

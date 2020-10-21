@@ -50,7 +50,9 @@ const Footer = () => (
       </Link>
       <div className="footer-links">
         {footerLinks.map(({ name, url }, key) => (
-          <StyledLink key={key} to={url}>{name}</StyledLink>
+          <StyledLink key={key} to={url}>
+            {name}
+          </StyledLink>
         ))}
       </div>
     </StyledContentWrapper>

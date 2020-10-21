@@ -27,4 +27,4 @@ const Icon = ({ name, color }) => {
   }
 }
 
-export default Icon;
+export default Icon

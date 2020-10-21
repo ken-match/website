@@ -1,15 +1,27 @@
 import React from "react"
 import PropTypes from "prop-types"
 import Helmet from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
+import {
+  useStaticQuery,
+  graphql
+} from "gatsby"
 
 import Theme from "../styles/Theme"
 
-const { colors } = Theme
+const {
+  colors
+} = Theme
 
-const SEO = ({ description, lang, meta, title }) => {
-  const { site } = useStaticQuery(
-    graphql`
+const SEO = ({
+  description,
+  lang,
+  meta,
+  title
+}) => {
+  const {
+    site
+  } = useStaticQuery(
+    graphql `
       query {
         site {
           siteMetadata {
@@ -24,15 +36,20 @@ const SEO = ({ description, lang, meta, title }) => {
 
   const metaDescription = description || site.siteMetadata.description
 
-  return (
-    <Helmet
-      htmlAttributes={{
+  return ( <
+    Helmet htmlAttributes = {
+      {
         lang,
-      }}
-      title={title}
-      titleTemplate={`%s`}
-      meta={[
-        {
+      }
+    }
+    title = {
+      title
+    }
+    titleTemplate = {
+      `%s`
+    }
+    meta = {
+      [{
           name: `description`,
           content: metaDescription,
         },
@@ -76,7 +93,8 @@ const SEO = ({ description, lang, meta, title }) => {
           name: `theme-color`,
           content: colors.primary,
         },
-      ].concat(meta)}
+      ].concat(meta)
+    }
     />
   )
 }
@@ -89,7 +107,7 @@ SEO.propTypes = {
 }
 
 SEO.defaultProps = {
-  lang: `en`,
+  lang: `ja`,
   meta: [],
   description: ``,
 }
